@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FH Wedel Streaming Plattform</title>
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Pfad zu Ihrer CSS-Datei -->
+</head>
+<body>
+    <header>
+        <h1>Willkommen bei der FH Wedel Streaming Plattform</h1>
+        <nav>
+            <ul>
+                <li><a href="/login">Login</a></li>
+                <li><a href="/register">Registrieren</a></li>
+                <li><a href="/courses">Kurse</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h2>Über die Plattform</h2>
+            <p>Entdecken Sie eine Vielzahl von Kursen und Lernmaterialien, die auf Ihre Bedürfnisse zugeschnitten sind.</p>
+        </section>
+
+        <section id="featured-courses">
+            <h2>Ausgewählte Kurse</h2>
+            <% if (courses && courses.length > 0) { %>
+                <% courses.forEach(course => { %>
+                    <article>
+                        <h3><%= course.title %></h3>
+                        <p><%= course.description %></p>
+                        <a href="/course/<%= course.id %>">Mehr erfahren</a>
+                    </article>
+                <% }); %>
+            <% } else { %>
+                <p>Derzeit sind keine Kurse verfügbar.</p>
+            <% } %>
+        </section>
+    </main>
+
+    <footer>
+        <p>Kontaktinformationen und Impressum</p>
+    </footer>
+</body>
+</html>

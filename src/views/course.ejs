@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= course.title %></title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <!-- Ihr Header-Content (z.B. Navigationsleiste) -->
+    </header>
+
+    <main>
+        <div class="course-detail">
+            <h1><%= course.title %></h1>
+            <img src="<%= course.imageUrl %>" alt="<%= course.title %>" class="course-image">
+            <p><%= course.description %></p>
+            <% if (course.videoUrl) { %>
+                <iframe src="<%= course.videoUrl %>" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <% } %>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Ihr Footer-Content -->
+    </footer>
+</body>
+</html>

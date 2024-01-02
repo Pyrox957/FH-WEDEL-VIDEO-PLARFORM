@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kurs bearbeiten</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Kurs bearbeiten</h1>
+
+    <!-- Formular zum Bearbeiten eines Kurses -->
+    <form action="/admin/update-course/<%= course.id %>" method="post">
+        <input type="hidden" name="id" value="<%= course.id %>">
+
+        <label for="title">Titel:</label>
+        <input type="text" name="title" id="title" value="<%= course.title %>" required>
+
+        <label for="description">Beschreibung:</label>
+        <textarea name="description" id="description"><%= course.description %></textarea>
+
+        <label for="videoUrl">Video-URL:</label>
+        <input type="text" name="videoUrl" id="videoUrl" value="<%= course.videoUrl %>">
+
+        <label for="imageUrl">Bild-URL:</label>
+        <input type="text" name="imageUrl" id="imageUrl" value="<%= course.imageUrl %>">
+
+        <input type="submit" value="Änderungen speichern">
+    </form>
+</body>
+</html>

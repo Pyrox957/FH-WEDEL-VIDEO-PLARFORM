@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kurse</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <header>
+        <!-- Ihr Header-Content (z.B. Navigationsleiste) -->
+    </header>
+
+    <main>
+        <h1>Verfügbare Kurse</h1>
+        <div class="courses-container">
+            <% courses.forEach(course => { %>
+                <div class="course-card">
+                    <img src="<%= course.imageUrl %>" alt="<%= course.title %>" class="course-image">
+                    <div class="course-content">
+                        <h2><%= course.title %></h2>
+                        <p><%= course.description %></p>
+                        <a href="/course/<%= course.id %>" class="course-link">Mehr erfahren</a>
+                    </div>
+                </div>
+            <% }); %>
+        </div>
+    </main>
+
+    <footer>
+        <!-- Ihr Footer-Content -->
+    </footer>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Panel - Kursverwaltung</title>
+    <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+    <h1>Kursverwaltung</h1>
+
+    <!-- Formular zum Hinzufügen eines neuen Kurses -->
+    <form action="/admin/add-course" method="post">
+        <h2>Neuen Kurs hinzufügen</h2>
+        <input type="text" name="title" placeholder="Titel" required>
+        <textarea name="description" placeholder="Beschreibung"></textarea>
+
+        <!-- Feld für die Eingabe der Video-URL -->
+        <input type="text" name="videoUrl" placeholder="Video-URL">
+
+        <!-- Feld für die Eingabe der Bild-URL -->
+        <input type="text" name="imageUrl" placeholder="Bild-URL">
+
+        <input type="submit" value="Kurs hinzufügen">
+    </form>
+
+    <hr>
+
+    <!-- Bestehende Kurse anzeigen -->
+    <h2>Vorhandene Kurse</h2>
+    <ul>
+        <% courses.forEach(course => { %>
+            <li>
+                <%= course.title %>
+                <form action="/admin/edit-course/<%= course.id %>" method="get">
+                    <input type="submit" value="Bearbeiten">
+                </form>
+                <form action="/admin/delete-course/<%= course.id %>" method="post">
+                    <input type="submit" value="Löschen">
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</body>
+</html>
